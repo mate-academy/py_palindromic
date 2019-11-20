@@ -9,11 +9,14 @@ def get_longest_palindrome(string: str) -> str:
 
     if length_s < 2:
         return string
-    longest_pal = ''
-    for s_pal in range(0, length_s - 1):
-        for e_pal in range(s_pal + 1, length_s):
-            substr = string[s_pal:e_pal + 1]
-            if substr == substr[::-1] and len(substr) > len(longest_pal):
-                longest_pal = substr
 
-    return longest_pal if longest_pal else string[0]
+    s_last = 1
+    while s_last < length_s:
+        for start in range(s_last):
+            end = length_s - s_last + start
+            substr = string[start:end + 1]
+            if substr == substr[::-1]:
+                return substr
+        s_last += 1
+
+    return string[0]
