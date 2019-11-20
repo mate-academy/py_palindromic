@@ -12,9 +12,9 @@ def get_longest_palindrome(text: str) -> str:
         if index == size or breaker:
             break
         for howtry_index in range(howtry):
-            temp = text[howtry_index:max_size+howtry_index]
-            if temp == temp[::-1]:
-                result = temp
+            intermediate = text[howtry_index:max_size+howtry_index]
+            if intermediate == intermediate[::-1]:
+                result = intermediate
                 breaker = True
                 break
         howtry += 1
