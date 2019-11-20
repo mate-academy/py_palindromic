@@ -24,4 +24,4 @@ def test_midle_polindrom():
     assert palindromic.get_longest_palindrome("BANANAG") == "ANANA"
 
 def test_reversed():
-    assert palindromic.get_longest_palindrome("ABCDEBCA") == "A"
+    assert palindromic.get_longest_palindrome("ABACDEBCA") == "ABA"
