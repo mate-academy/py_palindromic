@@ -18,11 +18,16 @@ def get_longest_palindrome(strng: str) -> str:
     :param s:
     :return:
     '''
+    if strng == '':
+        return ''
+    if is_palindrom(strng):
+        return strng
     lngth = len(strng)
-    for i in range(lngth - 1):
-        if is_palindrom(strng[i:]):
-            return strng[i:]
-    for i in range(lngth, 0, -1):
-        if is_palindrom(strng[:i]):
-            return strng[:i]
-    return ''
+    for j in range(1, lngth // 2):
+        if is_palindrom(strng[j:-j]):
+            return strng[j:-j]
+        if is_palindrom(strng[j:]):
+            return strng[j:]
+        if is_palindrom(strng[:j]):
+            return strng[:j]
+    return strng[0]
