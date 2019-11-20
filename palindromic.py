@@ -1,5 +1,4 @@
-"""docstring?"""
-
+"""docstring"""
 
 def get_longest_palindrome(string: str) -> str:
     """Find longest palindrome"""
@@ -8,11 +7,16 @@ def get_longest_palindrome(string: str) -> str:
     if reversed_string == string:
         return string
 
-    for index in range(len(string)):
-        if string[index:] in reversed_string:
-            return string[index:]
-        # if there is no substring palindrome longer than 1 char
-        if len(string[index:]) == 2:
-            return string[0]
+    # save all substring palindromes in list
+    palindromes = []
+    largest = 0
+    for i in range(len(string)):
+        for j in range(len(string) + 1):
+            if string[j:(j+i)] == string[j:(j+i)][::-1]:
+                palindromes.append(string[j:(j+i)])
+                # find largest in list
+                if len(string[j:(j+i)]) > largest:
+                    largest = len(string[j:(j+i)])
+                    index_of_largest = palindromes.index(string[j:(j+i)])
 
-    return ""
+    return palindromes[index_of_largest]
