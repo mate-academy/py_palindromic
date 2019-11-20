@@ -1,7 +1,6 @@
 """
 module docstring
 """
-import itertools
 
 
 def get_longest_palindrome(strng: str) -> str:
@@ -10,12 +9,12 @@ def get_longest_palindrome(strng: str) -> str:
     :param strng: str
     :return: str
     """
-    max_pol_strng = ''
-    max_pol_strng_len = 0
-
-    for start, stop in itertools.combinations(range(len(strng) + 1), 2):
-        sub_strng = strng[start:stop]
-        if (len(sub_strng) > max_pol_strng_len) and (sub_strng == sub_strng[::-1]):
-            max_pol_strng, max_pol_strng_len = sub_strng, len(sub_strng)
-
+    if len(strng) <= 1:
+        return strng
+    max_pol_strng = ""
+    for i in range(len(strng)):
+        for j in range(i + len(max_pol_strng), len(strng)):
+            if strng[i:j + 1] == strng[i:j + 1][::-1]:
+                if len(strng[i:j + 1]) > len(max_pol_strng):
+                    max_pol_strng = strng[i:j + 1]
     return max_pol_strng
