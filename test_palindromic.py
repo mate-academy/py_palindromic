@@ -20,6 +20,8 @@ def test_whole_string():
 def test_banana():
     assert palindromic.get_longest_palindrome("BANANA") == "ANANA"
 
+def test_midle_polindrom():
+    assert palindromic.get_longest_palindrome("BANANAG") == "ANANA"
 
 def test_reversed():
-    assert palindromic.get_longest_palindrome("ABCDEBCA") == "A"
+    assert palindromic.get_longest_palindrome("ABACDEBCA") == "ABA"
