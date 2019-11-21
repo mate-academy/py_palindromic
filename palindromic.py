@@ -3,12 +3,12 @@
 
 def get_longest_palindrome(string: str) -> str:
     """Find the longest palindrome"""
-    longest = ''
-    reversed_string = string[::-1]
-    for index, _value in enumerate(string, start=1):
-        if string[:index] == string[:index][::-1] and index > len(longest):
-            longest = string[:index]
-    for index, _value in enumerate(reversed_string, start=1):
-        if reversed_string[:index] == reversed_string[:index][::-1] and index > len(longest):
-            longest = reversed_string[:index]
-    return longest
+    if not string:
+        return ''
+    largest = string[0]
+    for i in range(len(string)):
+        for j in range(0, i):
+            sub = string[j:i+1]
+            if sub == sub[::-1]:
+                largest = max(largest, sub, key=len)
+    return largest
