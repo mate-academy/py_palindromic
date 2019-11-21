@@ -3,7 +3,7 @@ Find palindrome in string
 """
 
 def get_longest_palindrome(strg: str) -> str:
-    """ func find palindrome """
+    """ func find palindrome  """
     if not strg or len(strg) == 1:
         return strg
 
