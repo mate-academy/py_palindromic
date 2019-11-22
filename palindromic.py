@@ -8,8 +8,8 @@ def get_longest_palindrome(strg: str) -> str:
         return strg
 
     for i in range(len(strg)-1):
-        for y in range(len(strg)-1, 0, -1):
-            if strg[i:] == strg[i:][::-1]:
-                return strg[i:]
+        for y in range(len(strg), 0, -1):
+            if strg[i:] == strg[i:y][::-1]:
+                return strg[i:y]
 
     return strg[0]
