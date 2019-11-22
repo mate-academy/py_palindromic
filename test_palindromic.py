@@ -22,4 +22,4 @@ def test_banana():
 
 
 def test_reversed():
-    assert palindromic.get_longest_palindrome("ABCDEDCBAFD") == "A"
+    assert palindromic.get_longest_palindrome("ABCDEDCBAFD") == "ABCDEDCBA"
